@@ -9,7 +9,7 @@ A RESTFUL API built with Ruby on Rails. It uses JWT to implement Authentication 
 
 ## :hammer: Built with
 
-- Ruby v2.7.2
+- Ruby v2.7.1
 - Ruby on Rails v7.0.2.3
 - RSpec-Rails for testing
 
@@ -19,7 +19,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.7.2
+Ruby: 2.7.1
 Rails: 7.0.2.3
 Postgres: >=9.5
 
