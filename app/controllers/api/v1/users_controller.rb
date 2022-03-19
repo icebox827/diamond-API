@@ -1,6 +1,6 @@
 class Api 
   module V1
-    class UserController < ApplicationController
+    class UsersController < ApplicationController
       # Display all users in json format
       def index
         @users = User.all
