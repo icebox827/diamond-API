@@ -1,7 +1,7 @@
-module Api 
+module Api
   module V1
     class UsersController < ApplicationController
-      # Display all users in json format
+    # Display all users in json format
       def index
         @users = User.all
         render json: @users
@@ -20,7 +20,7 @@ module Api
         if @user.save
           render json: { message: 'User created successfully' }, status: 200
         else
-          render json: { error: @user.error_full_message }, status: 422
+          render json: { error: @user.errors.full_messages }, status: 422
         end
       end
 
@@ -31,15 +31,15 @@ module Api
         if @user.update
           render json: { message: 'User created successfully' }, status: 200
         else
-          render json: { error: @user.error_full_message }, status: 422
+          render json: { error: @user.errors.full_messages }, status: 422
+        end
       end
 
       private
       # User parameters
       def user_params
-        params.permit(:first_name, :last_name, :email, :password)
+        params.require(:user).permit(:first_name, :last_name, :email, :password)
       end
     end
   end
-end
 end
