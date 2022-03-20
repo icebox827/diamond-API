@@ -85,7 +85,7 @@ The API will expose the following RESTful endpoints.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/icebox827/igo-API/issues/1).
+Feel free to check the [issues page](https://github.com/icebox827/diamond-API/issues/2).
 
 ## Show your support
 
