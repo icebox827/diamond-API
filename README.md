@@ -71,14 +71,7 @@ The API will expose the following RESTful endpoints.
 | POST /register          | Signup                       |
 | POST /login             | Login                        |
 | GET /users              | List all users               |
-| GET /cars               | List all cars                |
-| POST /cars              | Add a new car                |
-| DELETE /cars/:id        | Delete a car                 |
-| PUT /cars/:id           | Update a car                 |
-| DELETE /user/:id        | Delete a user                |
-| PUT /user/:id           | Update a user                |
-| POST /booked_cars:id    | Booked a car                 |
-| GET /booked_cars        | Get user booked cars         |
+| GET /user/id            | List s single user           |
 
 ## Author
 
