@@ -10,7 +10,7 @@ class Api
         elsif @user.authenticate(params[:password])
           secret_key = ENV['SECRET_KEY']
           token = JWT.encode({ user_id: @user.id, email: @user.email }, secret_key)
-        
+
           render json: { token: token, first_name: @user.first_name }, status: 200
         else
           render json: { error: 'Invalid email or password' }, status: 403

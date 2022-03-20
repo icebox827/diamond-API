@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-    # Display all users in json format
+      # Display all users in json format
       def index
         @users = User.all
         render json: @users
@@ -36,6 +36,7 @@ module Api
       end
 
       private
+
       # User parameters
       def user_params
         params.permit(:first_name, :last_name, :email, :password)
