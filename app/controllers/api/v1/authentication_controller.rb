@@ -1,4 +1,4 @@
-class Api
+module Api
   module V1
     class AuthenticationController < ApplicationController
       # Initiate authentication
