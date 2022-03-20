@@ -1,4 +1,4 @@
-class Api 
+module Api 
   module V1
     class UsersController < ApplicationController
       # Display all users in json format
@@ -41,4 +41,5 @@ class Api
       end
     end
   end
+end
 end
