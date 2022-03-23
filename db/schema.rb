@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_23_014721) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_23_014929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,10 +72,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_23_014721) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_users_on_address_id"
   end
 
   add_foreign_key "cars", "transmissions"
   add_foreign_key "cars", "users"
   add_foreign_key "phones", "users"
   add_foreign_key "services", "users"
+  add_foreign_key "users", "addresses"
 end
