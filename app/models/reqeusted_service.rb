@@ -1,0 +1,2 @@
+class ReqeustedService < ApplicationRecord
+end
