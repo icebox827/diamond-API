@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[index show create update]
       resources :authentication, only: %i[create]
       resources :tranmissions, only: %i[index create]
+      resources :services, only: %i[index create update]
     end
   end
 end
