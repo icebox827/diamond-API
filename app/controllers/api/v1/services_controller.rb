@@ -1,6 +1,7 @@
 module Api
   module V1
     class ServicesController < ApplicationController
+      before_action :authenticate, only: %i[create]
       # Display all services
       def index
         @services = Service.all

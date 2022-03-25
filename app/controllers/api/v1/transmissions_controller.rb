@@ -1,6 +1,7 @@
 module Api
   module V1
-    class TransmissionsController < ApplicationController\
+    class TransmissionsController < ApplicationController
+      before_action :authenticate, only: %i[create]
       # Display all transmissions type
       def index
         @transmissions = Transmission.all
