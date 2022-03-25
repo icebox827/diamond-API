@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :authentication, only: %i[create]
       resources :tranmissions, only: %i[index create]
       resources :services, only: %i[index create update]
+      resources :addresses, only: %i[index show create update]
     end
   end
 end
