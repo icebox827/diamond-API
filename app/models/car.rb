@@ -9,6 +9,7 @@ class Car < ApplicationRecord
 
   # Associations
   belongs_to :user
+  belongs_to :transmission
 
   # built-in method to count car
   def self.cars_count
