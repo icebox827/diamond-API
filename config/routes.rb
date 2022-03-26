@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :tranmissions, only: %i[index create]
       resources :services, only: %i[index create update]
       resources :addresses, only: %i[index show create update]
+      resources :phones, only: %i[index show create update destroy]
     end
   end
 end
