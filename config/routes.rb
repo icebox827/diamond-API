@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :services, only: %i[index create update]
       resources :addresses, only: %i[index show create update]
       resources :phones, only: %i[index show create update destroy]
+      resources :cars, only: %i[index show create update desrtoy]
     end
   end
 end
