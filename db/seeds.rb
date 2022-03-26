@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-transmissions = Tranmission.create([
+transmissions = Transmission.create([
     {
       transmission_type: "Automatic Transmission",
       abbreviation: "AT"
