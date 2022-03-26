@@ -44,7 +44,7 @@ module Api
         if @car.destroy
           render json: { status: 'success' }
         else
-          render json: { error: @car.erros.full_messages }, status: 422
+          render json: { error: @car.errors.full_messages }, status: 422
         end
       end
 
