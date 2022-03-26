@@ -23,12 +23,14 @@ module Api
       def update
         @service = Service.find(params[:id])
 
-        if @service.update
+        if @service.update(service_params)
           render json: { message: 'Service update successfully' }, status: 200
         else
           render json: { error: @service.errors.full_messages }, status: 422
         end
       end
+
+      private
 
       # Service parameters
       def service_params

@@ -19,6 +19,8 @@ module Api
         end
       end
 
+      private
+      
       # Transmission parameters
       def trans_params
         params.permit(:transmission_type, :abbreviation)

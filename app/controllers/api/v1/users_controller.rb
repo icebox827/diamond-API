@@ -28,7 +28,7 @@ module Api
       def update
         @user = User.find(params[:id])
 
-        if @user.update
+        if @user.update(user_params)
           render json: { message: 'User updated successfully' }, status: 200
         else
           render json: { error: @user.errors.full_messages }, status: 422

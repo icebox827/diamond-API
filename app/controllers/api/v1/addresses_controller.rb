@@ -29,12 +29,14 @@ module Api
       def update
         @address = Address.find(params[:id])
 
-        if @address.save
+        if @address.update(address_params)
           render json: { message: 'Address updated successfully' }, status: 200
         else
           render json: { error: @address.errors.full_messages }, status: 422
         end
       end
+
+      private 
 
       # Address params
       def address_params
