@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_26_220545) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_27_012328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_220545) do
     t.index ["user_id"], name: "index_phones_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "address_id", null: false
+    t.bigint "phone_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_profiles_on_address_id"
+    t.index ["phone_id"], name: "index_profiles_on_phone_id"
+  end
+
   create_table "reqeusted_services", force: :cascade do |t|
     t.integer "user_id"
     t.integer "service_id"
@@ -77,14 +86,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_220545) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "address_id"
-    t.index ["address_id"], name: "index_users_on_address_id"
   end
 
   add_foreign_key "cars", "transmissions"
   add_foreign_key "cars", "users"
   add_foreign_key "phones", "users"
+  add_foreign_key "profiles", "addresses"
+  add_foreign_key "profiles", "phones"
   add_foreign_key "reqeusted_services", "services"
   add_foreign_key "reqeusted_services", "users"
-  add_foreign_key "users", "addresses"
 end
