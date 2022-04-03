@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         resources :phones, only: %i[index show create update destroy]
         resources :cars, only: %i[index show create update destroy]
       end
-      resource :authentication, only: %i[create]
+      resources :authentication, only: %i[create]
       resources :services, only: %i[index create update]
       resources :reqeusted_services, only: %i[index show create update destroy]
     end
