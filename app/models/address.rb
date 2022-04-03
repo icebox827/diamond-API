@@ -5,5 +5,5 @@ class Address < ApplicationRecord
   validates :country, presence: true, length: { minimum: 2, maximum: 40 }
 
   # Associations
-  has_many :users
+  belongs_to :user
 end
