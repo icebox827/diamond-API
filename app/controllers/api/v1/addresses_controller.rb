@@ -2,21 +2,22 @@ module Api
   module v1
     class AddressesController < ApplicationController
       before_action :autheticate, only: %i[create]
+
       # Display all addresses
       def index
-        @addresses = Address.all
+        @addresses = @user.addresses
         render json: @addresses
       end
 
-      # Display a songle address
+      # Display a single address
       def show
-        @address = Address.find(params[:id])
+        @address = current_user.addresses.find(params[:id])
         render json: @address
       end
 
       # Create address
       def create
-        @address = Address.new(address_params)
+        @address = current_user.addresses.build(address_params)
 
         if @address.save
           render json: { message: 'Address created successfully' }, status: 200
@@ -27,7 +28,7 @@ module Api
 
       # Update address
       def update
-        @address = Address.find(params[:id])
+        @address = current_user.addresses.find(params[:id])
 
         if @address.update(address_params)
           render json: { message: 'Address updated successfully' }, status: 200
@@ -40,7 +41,7 @@ module Api
 
       # Address params
       def address_params
-        params.permit(:apartement, :building, :street, :state, :country)
+        params.permit(:apartement, :building, :street, :state, :country, :user_id)
       end
     end
   end
