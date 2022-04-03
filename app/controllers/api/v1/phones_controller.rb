@@ -5,19 +5,19 @@ module Api
 
 			# Display all phones
 			def index
-				@phones = Phone.all
+				@phones = current_user.phones.all
 				render json: @phones
 			end
 
 			# Display a single phones
 			def show
-				@phones = Phone.find(params[:id])
+				@phones = current_user.phones.find(params[:id])
 				render json: @phone
 			end
 
 			# Create phone
 			def create
-				@phone = @user.phones.build(phone_params)
+				@phone = current_user.phones.build(phone_params)
 
 				if @phone.save
 					render json: @phone, status: :created
@@ -28,7 +28,7 @@ module Api
 
 			# Update phone
 			def update
-				@phone = Phone.find(params[:id])
+				@phone = current_user.phones.find(params[:id])
 
 				if @phone.update(phone_params)
 					render json: @phone, status: :updated
@@ -38,7 +38,7 @@ module Api
 			end
 
 			def destroy
-				@phone. Phone.find(params[:id])
+				@phone = current_user.phones.find(params[:id])
 
 				if @phone.destroy
 					render json: { status: 'success' }
@@ -50,7 +50,7 @@ module Api
 			private
 			# Phone parameters
 			def phone_params
-				params.require(:phone).permit(:primary)
+				params.require(:phone).permit(:primary, :user_id)
 			end
 		end
 	end

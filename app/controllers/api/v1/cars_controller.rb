@@ -5,19 +5,19 @@ module Api
 
       # Display all the cars
       def index
-        @cars = Car.all
+        @cars = @user.cars.all
         render json: @cars
       end
 
       # Display a single car
       def show
-        @car = Car.find(params[:id])
+        @car = current_user.cars.find(params[:id])
         render json: @Car
       end
 
       # Create car
       def create
-        @car = @user.cars.build(car_params)
+        @car = current_user.cars.build(car_params)
 
         if @car.save
           render json: @car, status: :created
@@ -28,7 +28,7 @@ module Api
 
       # Update car
       def update
-        @car = Car.find(params[:id])
+        @car = current_user.cars.find(params[:id])
 
         if @Car.update(car_params)
           render json: @car, status: :updated
@@ -39,7 +39,7 @@ module Api
 
       # Destroy car
       def destroy
-        @car = Car.find(params[:id])
+        @car = current_user.cars.find(params[:id])
 
         if @car.destroy
           render json: { status: 'success' }
@@ -51,7 +51,7 @@ module Api
       private
       # Car parameters
       def car_params
-        params.require(:car).permit(:make, :model, :year, :color, :seats)
+        params.require(:car).permit(:make, :model, :year, :color, :seats, :user_id)
       end
     end
   end
