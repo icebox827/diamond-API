@@ -7,9 +7,10 @@ class Car < ApplicationRecord
   validates :seats, presence: true
   validates :user_id, presence: true
 
+  attr_accesible :user_id
+  
   # Associations
   belongs_to :user
-  belongs_to :transmission
 
   # built-in method to count car
   def self.cars_count
