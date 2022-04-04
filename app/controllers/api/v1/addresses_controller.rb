@@ -1,8 +1,7 @@
 module Api
   module V1
     class AddressesController < ApplicationController
-      before_action :authenticate, only: %i[create]
-      before_action :set_user, only: %i[show update destroy]
+      before_action :authenticate, only: %i[create index]
       before_action :get_user
 
       # Display all addresses
@@ -47,7 +46,7 @@ module Api
 
       # Address params
       def address_params
-        params.permit(:street, :city, :state, :zip, :country, :user_id)
+        params.require(:address).permit(:street, :city, :state, :zip, :country, :user_id)
       end
     end
   end

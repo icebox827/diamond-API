@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_03_225012) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_04_215813) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
 
   create_table "cars", force: :cascade do |t|
     t.string "make"
@@ -39,23 +27,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_03_225012) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
-  create_table "phones", force: :cascade do |t|
-    t.string "primary"
-    t.string "home"
-    t.string "work"
+  create_table "profiles", force: :cascade do |t|
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.string "phone"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_phones_on_user_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.bigint "address_id", null: false
-    t.bigint "phone_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_profiles_on_address_id"
-    t.index ["phone_id"], name: "index_profiles_on_phone_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reqeusted_services", force: :cascade do |t|
@@ -82,11 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_03_225012) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "cars", "users"
-  add_foreign_key "phones", "users"
-  add_foreign_key "profiles", "addresses"
-  add_foreign_key "profiles", "phones"
   add_foreign_key "reqeusted_services", "services"
   add_foreign_key "reqeusted_services", "users"
 end

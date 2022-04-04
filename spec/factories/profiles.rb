@@ -1,6 +1,11 @@
 FactoryBot.define do
   factory :profile do
-    address { nil }
-    phone { nil }
+    street { "MyString" }
+    city { "MyString" }
+    state { "MyString" }
+    zip { "MyString" }
+    country { "MyString" }
+    phone { "MyString" }
+    user_id { 1 }
   end
 end

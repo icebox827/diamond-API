@@ -9,8 +9,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 8 }
 
   # associations
-  has_many :cars
-  has_many :phones
+  has_many :cars, dependent: :destroy
+  has_many :phones, dependent: :destroy
   has_one :address, dependent: :destroy
   has_many :services, through: :reqeusted_services
 end
