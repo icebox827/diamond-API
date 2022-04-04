@@ -11,6 +11,6 @@ class User < ApplicationRecord
   # associations
   has_many :cars
   has_many :phones
-  has_one :address
+  has_one :address, dependent: :destroy
   has_many :services, through: :reqeusted_services
 end

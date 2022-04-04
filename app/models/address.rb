@@ -7,8 +7,6 @@ class Address < ApplicationRecord
   validates :country, presence: true, length: { minimum: 2, maximum: 40 }
   validates :user_id, presence: true
 
-  attr_accesible :user_id
-
   # Associations
   belongs_to :user
 end
