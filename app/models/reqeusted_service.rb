@@ -4,6 +4,6 @@ class ReqeustedService < ApplicationRecord
   validates :service_id, presence: true
   
   # Associations
-  belongs_to :User
+  belongs_to :user
   belongs_to :service
 end
