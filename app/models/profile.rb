@@ -8,6 +8,8 @@ class Profile < ApplicationRecord
   validates :phone, presence: true
   validates :user_id, presence: true
 
+  attr_accessor :user_id
+  
   # Associations
   belongs_to :user
 end
