@@ -50,7 +50,7 @@ module Api
       private 
       # Get user id
       def get_user
-        @user = User,find(params[:user_id])
+        @user = User.find(params[:user_id])
       end
 
       # Set parameters for profile

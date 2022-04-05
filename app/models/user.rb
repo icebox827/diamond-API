@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   # associations
   has_many :cars, dependent: :destroy
-  has_one :profile, dependent: :destroy
+  has_many :profile, dependent: :destroy
   has_many :services, through: :reqeusted_services
 end
